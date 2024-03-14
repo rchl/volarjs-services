@@ -103,7 +103,9 @@ export function create({
 
 					const configs = await context.env.getConfiguration?.<html.CompletionConfiguration>('html.completion');
 
-					return htmlLs.doComplete2(document, position, htmlDocument, documentContext, configs);
+					const r = await htmlLs.doComplete2(document, position, htmlDocument, documentContext, configs);
+					console.error(`html[${document.languageId}]`, r)
+					return r
 				});
 			},
 

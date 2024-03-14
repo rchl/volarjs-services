@@ -81,7 +81,7 @@ export function create(): Service<Provide> {
 
 					const settings = await context.env.getConfiguration?.<css.LanguageSettings>(document.languageId);
 					const cssResult = await cssLs.doComplete2(document, position, stylesheet, documentContext, settings?.completion);
-
+					console.error(`css[${document.languageId}]`, cssResult)
 					return cssResult;
 				});
 			},
